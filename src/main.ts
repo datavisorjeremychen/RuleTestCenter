@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, Routes } from '@angular/router';
+import { provideRouter, Routes, Router } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/app.component';
 
@@ -17,4 +17,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(TestingModule),
     provideRouter(routes)
   ]
+}).then(ref => {
+  // Force initial navigation in StackBlitz preview containers
+  const router = ref.injector.get(Router);
+  router.navigateByUrl('/testing');
 }).catch(err => console.error(err));

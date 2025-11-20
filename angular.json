@@ -23,6 +23,17 @@
             "styles": [
               "src/styles.scss"
             ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "sourceMap": false
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
           }
         },
         "serve": {

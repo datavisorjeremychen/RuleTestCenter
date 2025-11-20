@@ -39,12 +39,10 @@
           }
         },
         "serve": {
-  "builder": "@angular-devkit/build-angular:dev-server",
-  "options": {
-    "buildTarget": "RuleTestCenter:build"
-  }
-},
-          "defaultConfiguration": "development"
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "RuleTestCenter:build"
+          }
         }
       }
     }

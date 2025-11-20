@@ -1,0 +1,4 @@
+*{box-sizing:border-box} body,html{margin:0;padding:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#111827;color:#fff}
+.topbar a{color:#a3bffa;text-decoration:none;margin-left:10px}
+.content{min-height:calc(100vh - 48px);background:#f6f7f9}

@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 import { EventRow } from '../../models/testing.models';
 
 @Component({
+  standalone: true,
   selector: 'dv-clauses-view',
+  imports: [CommonModule],
   templateUrl: './clauses-view.component.html',
   styleUrls: ['./clauses-view.component.scss']
 })

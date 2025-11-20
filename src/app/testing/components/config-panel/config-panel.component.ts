@@ -2,7 +2,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Mode, TestConfig } from '../../models/testing.models';
 
 @Component({
+  standalone: true,
   selector: 'dv-config-panel',
+  imports: [CommonModule, FormsModule],
   templateUrl: './config-panel.component.html',
   styleUrls: ['./config-panel.component.scss']
 })

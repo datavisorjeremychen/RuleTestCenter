@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 import { Metrics, TestConfig } from '../../models/testing.models';
 
 @Component({
+  standalone: true,
   selector: 'dv-summary-cards',
+  imports: [CommonModule],
   templateUrl: './summary-cards.component.html',
   styleUrls: ['./summary-cards.component.scss']
 })

@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 import { EventRow } from '../../models/testing.models';
 
 @Component({
+  standalone: true,
   selector: 'dv-events-table',
+  imports: [CommonModule],
   templateUrl: './events-table.component.html',
   styleUrls: ['./events-table.component.scss']
 })

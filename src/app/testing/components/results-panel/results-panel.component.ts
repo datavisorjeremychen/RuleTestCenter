@@ -1,9 +1,15 @@
+import { SqlViewComponent } from '../sql-view/sql-view.component';
+import { ClausesViewComponent } from '../clauses-view/clauses-view.component';
+import { EventsTableComponent } from '../events-table/events-table.component';
+import { SummaryCardsComponent } from '../summary-cards/summary-cards.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResultView, TestConfig } from '../../models/testing.models';
 import { TestingService } from '../../services/testing.service';
 
 @Component({
+  standalone: true,
   selector: 'dv-results-panel',
+  imports: [CommonModule, SummaryCardsComponent, EventsTableComponent, ClausesViewComponent, SqlViewComponent],
   templateUrl: './results-panel.component.html',
   styleUrls: ['./results-panel.component.scss']
 })

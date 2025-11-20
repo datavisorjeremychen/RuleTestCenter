@@ -1,12 +1,16 @@
-import { ResultsPanelComponent } from '../results-panel/results-panel.component';
-import { AiAssistComponent } from '../ai-assist/ai-assist.component';
-import { ConfigPanelComponent } from '../config-panel/config-panel.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ResultView, TestConfig } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ConfigPanelComponent } from '../config-panel/config-panel.component';
+import { AiAssistComponent } from '../ai-assist/ai-assist.component';
+import { ResultsPanelComponent } from '../results-panel/results-panel.component';
 
 @Component({
-  standalone: true,
   selector: 'dv-testing-center',
+  standalone: true,
   imports: [CommonModule, FormsModule, ConfigPanelComponent, AiAssistComponent, ResultsPanelComponent],
   templateUrl: './testing-center.component.html',
   styleUrls: ['./testing-center.component.scss']

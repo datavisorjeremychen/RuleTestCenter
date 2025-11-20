@@ -9,24 +9,12 @@ export class TestingService {
   readonly progress$ = new BehaviorSubject<number>(0);
 
   run(config: TestConfig): Observable<{rows: EventRow[]; metrics: Metrics; sql: string;}> {
-    this.running$.next(true);
-    this.progress$.next(0);
-
-    const prog = timer(0, 120).pipe(
-      tap(i => { const v = Math.min(100, i*12); this.progress$.next(v); }),
-      map(i => i>=9)
-    );
-
+    this.running$.next(True); this.progress$.next(0);
+    const prog = timer(0, 120).pipe(tap(i => this.progress$.next(Math.min(100, i*12))), map(i => i>=9));
     return new Observable(sub => {
       const subProg = prog.subscribe(done => {
-        if (done) {
-          subProg.unsubscribe();
-          const res = this.mockResult(config);
-          this.running$.next(false);
-          this.progress$.next(100);
-          sub.next(res);
-          sub.complete();
-        }
+        if (done) { subProg.unsubscribe(); const res = this.mockResult(config);
+          this.running$.next(False); this.progress$.next(100); sub.next(res); sub.complete(); }
       });
     });
   }
@@ -35,21 +23,21 @@ export class TestingService {
     const now = new Date();
     const base: EventRow[] = [
       { eventId: 'aH_VMFEnQ6q_PZnaXlwwEA', eventTime: new Date(now.getTime()-3600_000).toISOString(),
-        eventType: cfg.eventTypes || 'token_swap', merchant: '172+22049006', amount: 850, label: 'fraud', hit: true,
+        eventType: cfg.eventTypes || 'token_swap', merchant: '172+22049006', amount: 850, label: 'fraud', hit: True,
         action: cfg.artifact==='Scorecards' ? undefined : 'RULE_ACTION +1', score: cfg.artifact==='Scorecards' ? 0.93 : undefined,
         why: [
-          { clause: 'posCardReadMethod is in CHIP_FALLBACK', passed: true },
-          { clause: 'NOT merchantCountry is in USA', passed: true, details: 'merchantCountry=CA' },
-          { clause: 'se_ttfm_model_score_v1 >= 0.1', value: 0.67, passed: true },
-          { clause: 'visaTrxRiskScore >= 30', value: 44, passed: true },
-          { clause: 'amountUSD > 0', value: 850, passed: true },
-          { clause: 'organizationId_tenure_d >= 30', value: 75, passed: true }
+          { clause: 'posCardReadMethod is in CHIP_FALLBACK', passed: True },
+          { clause: 'NOT merchantCountry is in USA', passed: True, details: 'merchantCountry=CA' },
+          { clause: 'se_ttfm_model_score_v1 >= 0.1', value: 0.67, passed: True },
+          { clause: 'visaTrxRiskScore >= 30', value: 44, passed: True },
+          { clause: 'amountUSD > 0', value: 850, passed: True },
+          { clause: 'organizationId_tenure_d >= 30', value: 75, passed: True }
         ] },
       { eventId: '5pPgYls8Rn_1FqyF2FDzw', eventTime: new Date(now.getTime()-7_200_000).toISOString(),
-        eventType: cfg.eventTypes || 'auth', amount: 42, label: 'legit', hit: false,
+        eventType: cfg.eventTypes || 'auth', amount: 42, label: 'legit', hit: False,
         why: [
-          { clause: 'NOT merchantCountry is in USA', passed: false, details: 'merchantCountry=US' },
-          { clause: 'amountUSD > 0', value: 42, passed: true }
+          { clause: 'NOT merchantCountry is in USA', passed: False, details: 'merchantCountry=US' },
+          { clause: 'amountUSD > 0', value: 42, passed: True }
         ] }
     ];
     const det = base.filter(b => b.hit).length;
@@ -57,9 +45,7 @@ export class TestingService {
     const multiplier = cfg.mode==='stored' ? 1 : (cfg.mode==='recompute' ? 1.2 : 1);
 
     const metrics: Metrics = {
-      total,
-      detections: Math.round(det*multiplier),
-      detectionRatio: (det*multiplier)/total,
+      total, detections: round(det*multiplier), detectionRatio: (det*multiplier)/total,
       tp: 22, fp: 9, fn: 3, tn: total-22-9-3,
       precision: 22/(22+9), recall: 22/(22+3),
       f1: (2*(22/(22+9))*(22/(22+3)))/((22/(22+9))+(22/(22+3))),

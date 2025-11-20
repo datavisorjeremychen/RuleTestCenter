@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'dv-sql-view',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './sql-view.component.html',
   styleUrls: ['./sql-view.component.scss']

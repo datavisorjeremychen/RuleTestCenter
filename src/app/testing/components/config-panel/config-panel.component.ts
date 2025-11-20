@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Mode, TestConfig } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  standalone: true,
   selector: 'dv-config-panel',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './config-panel.component.html',
   styleUrls: ['./config-panel.component.scss']

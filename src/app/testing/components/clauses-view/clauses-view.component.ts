@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventRow } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'dv-clauses-view',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './clauses-view.component.html',
   styleUrls: ['./clauses-view.component.scss']

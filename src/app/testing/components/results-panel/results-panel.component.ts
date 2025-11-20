@@ -1,14 +1,16 @@
-import { SqlViewComponent } from '../sql-view/sql-view.component';
-import { ClausesViewComponent } from '../clauses-view/clauses-view.component';
-import { EventsTableComponent } from '../events-table/events-table.component';
-import { SummaryCardsComponent } from '../summary-cards/summary-cards.component';
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ResultView, TestConfig } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
+import { SummaryCardsComponent } from '../summary-cards/summary-cards.component';
+import { EventsTableComponent } from '../events-table/events-table.component';
+import { ClausesViewComponent } from '../clauses-view/clauses-view.component';
+import { SqlViewComponent } from '../sql-view/sql-view.component';
 import { TestingService } from '../../services/testing.service';
 
 @Component({
-  standalone: true,
   selector: 'dv-results-panel',
+  standalone: true,
   imports: [CommonModule, SummaryCardsComponent, EventsTableComponent, ClausesViewComponent, SqlViewComponent],
   templateUrl: './results-panel.component.html',
   styleUrls: ['./results-panel.component.scss']

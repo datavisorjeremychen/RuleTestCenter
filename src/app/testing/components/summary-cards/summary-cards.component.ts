@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Metrics, TestConfig } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'dv-summary-cards',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './summary-cards.component.html',
   styleUrls: ['./summary-cards.component.scss']

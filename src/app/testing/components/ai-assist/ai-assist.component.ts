@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TestConfig } from '../../models/testing.models';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'dv-ai-assist',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './ai-assist.component.html',
   styleUrls: ['./ai-assist.component.scss']

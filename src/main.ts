@@ -14,4 +14,4 @@ bootstrapApplication(AppComponent, {
 }).then(ref => {
   const router = ref.injector.get(Router);
   router.navigateByUrl('/testing');
-}).catch(console.error);
+});
